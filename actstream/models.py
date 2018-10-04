@@ -165,9 +165,8 @@ class Action(models.Model):
         """
         return djtimesince(self.timestamp, now).encode('utf8').replace(b'\xc2\xa0', b' ').decode('utf8')
 
-    @models.permalink
     def get_absolute_url(self):
-        return 'actstream.views.detail', [self.pk]
+        return reverse('actstream.views.detail', args=[self.pk])
 
 
 # convenient accessors
